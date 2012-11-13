@@ -1,0 +1,12 @@
+{
+  "name": "PackagedApp",
+  "description": "Packaged App",
+  "launch_path": "index.html",
+  "developer": {
+    "name": "Fernando Jimenez"
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "60": "icon.png"
+  }
+}

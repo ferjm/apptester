@@ -1,0 +1,13 @@
+{
+ "name": "apps_tester",
+ "version": "0.0.1",
+ "dependencies": {
+   "express": "3.0.0"
+ },
+ "maintainers": {
+   "name": "Francisco Jordano",
+   "email": "francisco@jordano.es"
+ },
+ "main": "app.js",
+ "description": "Firefox OS Apps test app"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "BigHostedApp",
+  "description": "Big Hosted App",
+  "launch_path": "/apps/bigHostedApp/index.html",
+  "developer": {
+    "name": "Francisco Jordano",
+    "url": "http://www.ardeenelinfierno.com"
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "60": "/apps/bigHostedApp/icon.png"
+  },
+  "appcache_path": "/apps/bigHostedApp/manifest.appcache"
+}
