@@ -2,7 +2,7 @@ CACHE MANIFEST
 #Generated: Wed  7 Nov 2012 10:01:27 PST
 CACHE:
 /
-image.jpg
+thisfileshouldraiseanerror.unknown
 index.html
 manifest.webapp
 NETWORK:

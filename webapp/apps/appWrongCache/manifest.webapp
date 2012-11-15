@@ -1,0 +1,13 @@
+{
+  "name": "appWithWrongCache",
+  "description": "App with wrong cache",
+  "launch_path": "/apps/appWrongCache/index.html",
+  "developer": {
+    "name": "Francisco Jordano and Fernando Jimenez"
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "60": "/apps/appWrongCache/icon.png"
+  },
+  "appcache_path": "/apps/appWrongCache/manifest.appcache"
+}

@@ -32,6 +32,13 @@ app.get('/apps/packagedApp/package.manifest', function(req, res) {
   res.end(manifest);
 });
 
+app.get('/apps/appWrongCache/package.manifest', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/appWrongCache/package.manifest').toString();
+
+  res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
+  res.end(manifest);
+});
+
 app.get('/apps/packagedApp/application.zip', function(req, res) {
   var appPackage = fs.readFileSync(__dirname + '/webapp/apps/packagedApp/application.zip');
 
