@@ -21,19 +21,47 @@ app.get('/manifest.appcache', function(req, res) {
 app.get('/apps/bigHostedApp/manifest.webapp', function(req, res) {
   var manifest = fs.readFileSync(__dirname + '/webapp/apps/bigHostedApp/manifest.webapp').toString();
 
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
+app.get('/apps/bigHostedApp/manifest.appcache', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/bigHostedApp/manifest.appcache').toString();
+
   res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
   res.end(manifest);
 });
 
-app.get('/apps/packagedApp/package.manifest', function(req, res) {
-  var manifest = fs.readFileSync(__dirname + '/webapp/apps/packagedApp/package.manifest').toString();
+app.get('/apps/hostedAppEp/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/hostedAppEp/manifest.webapp').toString();
 
-  res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
   res.end(manifest);
 });
 
-app.get('/apps/appWrongCache/package.manifest', function(req, res) {
-  var manifest = fs.readFileSync(__dirname + '/webapp/apps/appWrongCache/package.manifest').toString();
+app.get('/apps/packagedApp/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/packagedApp/manifest.webapp').toString();
+
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
+app.get('/apps/packagedAppEp/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/packagedAppEp/manifest.webapp').toString();
+
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
+app.get('/apps/appWrongCache/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/appWrongCache/manifest.webapp').toString();
+
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
+app.get('/apps/appWrongCache/manifest.appcache', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/appWrongCache/manifest.appcache').toString();
 
   res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
   res.end(manifest);
@@ -41,6 +69,13 @@ app.get('/apps/appWrongCache/package.manifest', function(req, res) {
 
 app.get('/apps/packagedApp/application.zip', function(req, res) {
   var appPackage = fs.readFileSync(__dirname + '/webapp/apps/packagedApp/application.zip');
+
+  res.writeHead(200);
+  res.end(appPackage);
+});
+
+app.get('/apps/packagedAppEp/application.zip', function(req, res) {
+  var appPackage = fs.readFileSync(__dirname + '/webapp/apps/packagedAppEp/application.zip');
 
   res.writeHead(200);
   res.end(appPackage);

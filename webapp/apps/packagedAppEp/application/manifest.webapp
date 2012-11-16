@@ -1,0 +1,25 @@
+{
+  "name": "PackagedAppEntryPoints",
+  "description": "Packaged App with entry points",
+  "launch_path": "/",
+  "developer": {
+    "name": "Francisco Jordano and Fernando Jimenez"
+  },
+  "entry_points": {
+    "app1": {
+      "launch_path": "/app1/index.html",
+      "name": "App1",
+      "icons": {
+        "60": "app1/icon.png"
+      }
+    },
+    "app2": {
+      "launch_path": "/app2/index.html",
+      "name": "App2",
+      "icons": {
+        "60": "app2/icon.png"
+      }
+    }
+  },
+  "default_locale": "en-US"
+}
