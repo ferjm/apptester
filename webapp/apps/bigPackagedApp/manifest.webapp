@@ -1,0 +1,7 @@
+{
+ "name" : "Big Packaged app",
+  "version" : "1.0",
+  "size" : 8657577,
+  "release_notes": "First release",
+  "package_path": "/apps/bigPackagedApp/application.zip"
+}
