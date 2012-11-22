@@ -2,6 +2,7 @@ const APP_REPO = document.location.protocol + '//' + document.location.host;
 const BIG_HOSTED_APP = APP_REPO + '/apps/bigHostedApp/manifest.webapp';
 const HOSTED_APP_EP = APP_REPO + '/apps/hostedAppEp/manifest.webapp';
 const PACKAGED_APP = APP_REPO + '/apps/packagedApp/manifest.webapp';
+const BIG_PACKAGED_APP = APP_REPO + '/apps/bigPackagedApp/manifest.webapp';
 const PACKAGED_APP_EP = APP_REPO + '/apps/packagedAppEp/manifest.webapp';
 const WRONG_CACHE_APP = APP_REPO + '/apps/appWrongCache/manifest.webapp';
 
@@ -39,6 +40,17 @@ function packagedApp() {
   };
 }
 
+function bigPackagedApp() {
+  var req = navigator.mozApps.installPackage(BIG_PACKAGED_APP);
+  req.onsuccess = function onsuccess() {
+    console.log('Successfully installed bigPackagedApp');
+  };
+
+  req.onerror = function onerror(e) {
+    console.log('Error ' + e.target.error.name);
+  };
+}
+
 function packagedAppEp() {
   var req = navigator.mozApps.installPackage(PACKAGED_APP_EP);
   req.onsuccess = function onsuccess() {
@@ -67,4 +79,5 @@ window.addEventListener('load', function init(evt) {
   document.getElementById('packagedApp').addEventListener('click', packagedApp);
   document.getElementById('packagedAppEp').addEventListener('click', packagedAppEp);
   document.getElementById('appWrongCache').addEventListener('click', appWithWrongCache);
+  document.getElementById('bigPackagedApp').addEventListener('click', bigPackagedApp);
 });
