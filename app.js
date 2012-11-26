@@ -46,6 +46,13 @@ app.get('/apps/packagedApp/manifest.webapp', function(req, res) {
   res.end(manifest);
 });
 
+app.get('/apps/bigPackagedApp/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/bigPackagedApp/manifest.webapp').toString();
+
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
 app.get('/apps/packagedAppEp/manifest.webapp', function(req, res) {
   var manifest = fs.readFileSync(__dirname + '/webapp/apps/packagedAppEp/manifest.webapp').toString();
 
@@ -65,20 +72,6 @@ app.get('/apps/appWrongCache/manifest.appcache', function(req, res) {
 
   res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
   res.end(manifest);
-});
-
-app.get('/apps/packagedApp/application.zip', function(req, res) {
-  var appPackage = fs.readFileSync(__dirname + '/webapp/apps/packagedApp/application.zip');
-
-  res.writeHead(200);
-  res.end(appPackage);
-});
-
-app.get('/apps/packagedAppEp/application.zip', function(req, res) {
-  var appPackage = fs.readFileSync(__dirname + '/webapp/apps/packagedAppEp/application.zip');
-
-  res.writeHead(200);
-  res.end(appPackage);
 });
 
 // Serve the content
