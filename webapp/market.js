@@ -5,6 +5,7 @@ const PACKAGED_APP = APP_REPO + '/apps/packagedApp/manifest.webapp';
 const BIG_PACKAGED_APP = APP_REPO + '/apps/bigPackagedApp/manifest.webapp';
 const PACKAGED_APP_EP = APP_REPO + '/apps/packagedAppEp/manifest.webapp';
 const WRONG_CACHE_APP = APP_REPO + '/apps/appWrongCache/manifest.webapp';
+const INEXISTING_CACHE_APP = APP_REPO + '/apps/appInexistingCache/manifest.webapp';
 
 function bigHostedApp() {
   var req = navigator.mozApps.install(BIG_HOSTED_APP);
@@ -18,7 +19,6 @@ function bigHostedApp() {
 }
 
 function hostedAppEp() {
-  console.log('*** hostedAppEp');
   var req = navigator.mozApps.install(HOSTED_APP_EP);
   req.onsuccess = function onsuccess() {
     console.log('Successfully installed hostedAppEp');
@@ -73,6 +73,17 @@ function appWithWrongCache() {
   };
 }
 
+function appInexistingCache() {
+  var req = navigator.mozApps.install('http://dictionary.reference.com/appmarket/dictionary/dictionary.webapp');
+  req.onsuccess = function onsuccess() {
+    console.log('Something went wrong. You installed a wrong app');    
+  };
+  
+  req.onerror = function onerror(e) {
+    console.log('Got an error!' + e.target.error.name);
+  };
+}
+
 window.addEventListener('load', function init(evt) {
   document.getElementById('bigHostedApp').addEventListener('click', bigHostedApp);
   document.getElementById('hostedAppEp').addEventListener('click', hostedAppEp);
@@ -80,4 +91,5 @@ window.addEventListener('load', function init(evt) {
   document.getElementById('packagedAppEp').addEventListener('click', packagedAppEp);
   document.getElementById('appWrongCache').addEventListener('click', appWithWrongCache);
   document.getElementById('bigPackagedApp').addEventListener('click', bigPackagedApp);
+  document.getElementById('appInexistingCache').addEventListener('click', appInexistingCache);
 });

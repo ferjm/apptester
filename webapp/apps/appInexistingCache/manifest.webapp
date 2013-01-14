@@ -1,0 +1,10 @@
+{
+  "name": "appWithInexistingCache",
+  "description": "App with inexisting cache",
+  "launch_path": "/apps/appInexistingCache/index.html",
+  "developer": {
+    "name": "Francisco Jordano and Fernando Jimenez"
+  },
+  "default_locale": "en-US",
+  "appcache_path": "inexisting.appcache"
+}
