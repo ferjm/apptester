@@ -1,9 +1,14 @@
 {
-  "name": "PackagedApp",
+  "name" : "Packaged app",
+  "version" : "1.0a1",
+  "size" : 8522,
+  "release_notes": "First release",
+  "package_path": "/apps/packagedApp/application.zip",
   "description": "Packaged App",
   "launch_path": "index.html",
   "developer": {
-    "name": "Fernando Jimenez"
+    "name": "Fernando Jimenez",
+    "url": "https://github.com/ferjm"
   },
   "default_locale": "en-US",
   "icons": {

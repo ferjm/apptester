@@ -1,9 +1,7 @@
 const APP_REPO = document.location.protocol + '//' + document.location.host;
 const BIG_HOSTED_APP = APP_REPO + '/apps/bigHostedApp/manifest.webapp';
-const HOSTED_APP_EP = APP_REPO + '/apps/hostedAppEp/manifest.webapp';
 const PACKAGED_APP = APP_REPO + '/apps/packagedApp/manifest.webapp';
 const BIG_PACKAGED_APP = APP_REPO + '/apps/bigPackagedApp/manifest.webapp';
-const PACKAGED_APP_EP = APP_REPO + '/apps/packagedAppEp/manifest.webapp';
 const WRONG_CACHE_APP = APP_REPO + '/apps/appWrongCache/manifest.webapp';
 const INEXISTING_CACHE_APP = APP_REPO + '/apps/appInexistingCache/manifest.webapp';
 
@@ -11,17 +9,6 @@ function bigHostedApp() {
   var req = navigator.mozApps.install(BIG_HOSTED_APP);
   req.onsuccess = function onsuccess() {
     console.log('Successfully installed bigHostedApp');
-  };
-
-  req.onerror = function onerror(e) {
-    console.log('Error ' + e.target.error.name);
-  };
-}
-
-function hostedAppEp() {
-  var req = navigator.mozApps.install(HOSTED_APP_EP);
-  req.onsuccess = function onsuccess() {
-    console.log('Successfully installed hostedAppEp');
   };
 
   req.onerror = function onerror(e) {
@@ -51,17 +38,6 @@ function bigPackagedApp() {
   };
 }
 
-function packagedAppEp() {
-  var req = navigator.mozApps.installPackage(PACKAGED_APP_EP);
-  req.onsuccess = function onsuccess() {
-    console.log('Successfully installed packagedAppEp');
-  };
-
-  req.onerror = function onerror(e) {
-    console.log('Error ' + e.target.error.name);
-  };
-}
-
 function appWithWrongCache() {
   var req = navigator.mozApps.install(WRONG_CACHE_APP);
   req.onsuccess = function onsuccess() {
@@ -74,7 +50,7 @@ function appWithWrongCache() {
 }
 
 function appInexistingCache() {
-  var req = navigator.mozApps.install('http://dictionary.reference.com/appmarket/dictionary/dictionary.webapp');
+  var req = navigator.mozApps.install(INEXISTING_CACHE_APP);
   req.onsuccess = function onsuccess() {
     console.log('Something went wrong. You installed a wrong app');    
   };
@@ -86,9 +62,7 @@ function appInexistingCache() {
 
 window.addEventListener('load', function init(evt) {
   document.getElementById('bigHostedApp').addEventListener('click', bigHostedApp);
-  document.getElementById('hostedAppEp').addEventListener('click', hostedAppEp);
   document.getElementById('packagedApp').addEventListener('click', packagedApp);
-  document.getElementById('packagedAppEp').addEventListener('click', packagedAppEp);
   document.getElementById('appWrongCache').addEventListener('click', appWithWrongCache);
   document.getElementById('bigPackagedApp').addEventListener('click', bigPackagedApp);
   document.getElementById('appInexistingCache').addEventListener('click', appInexistingCache);

@@ -1,5 +1,15 @@
 {
- "name" : "Big Packaged app",
+  "name": "Big Packaged App",
+  "description": "Big Packaged App",
+  "launch_path": "index.html",
+  "developer": {
+    "name": "Francisco Jordano",
+    "url": "http://www.ardeenelinfierno.com"
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "60": "icon.png"
+  },
   "version" : "1.0",
   "size" : 8657577,
   "release_notes": "First release",

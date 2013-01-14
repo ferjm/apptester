@@ -1,7 +1,0 @@
-{
- "name" : "Packaged app",
- "version" : "1.0a1",
- "size" : 8522,
- "release_notes": "First release",
- "package_path": "/apps/packagedAppEp/application.zip"
-}

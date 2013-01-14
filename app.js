@@ -37,14 +37,6 @@ app.get('/apps/bigHostedApp/manifest.appcache', function(req, res) {
   res.end(manifest);
 });
 
-app.get('/apps/hostedAppEp/manifest.webapp', function(req, res) {
-  var manifest = fs.readFileSync(__dirname + '/webapp/apps/hostedAppEp/manifest.webapp').toString();
-  var hash = crypto.createHash('md5').update(manifest).digest("hex");
-  res.set('Etag', hash);
-  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
-  res.end(manifest);
-});
-
 app.get('/apps/packagedApp/manifest.webapp', function(req, res) {
   var manifest = fs.readFileSync(__dirname + '/webapp/apps/packagedApp/manifest.webapp').toString();
   var hash = crypto.createHash('md5').update(manifest).digest("hex");
@@ -55,14 +47,6 @@ app.get('/apps/packagedApp/manifest.webapp', function(req, res) {
 
 app.get('/apps/bigPackagedApp/manifest.webapp', function(req, res) {
   var manifest = fs.readFileSync(__dirname + '/webapp/apps/bigPackagedApp/manifest.webapp').toString();
-  var hash = crypto.createHash('md5').update(manifest).digest("hex");
-  res.set('Etag', hash);
-  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
-  res.end(manifest);
-});
-
-app.get('/apps/packagedAppEp/manifest.webapp', function(req, res) {
-  var manifest = fs.readFileSync(__dirname + '/webapp/apps/packagedAppEp/manifest.webapp').toString();
   var hash = crypto.createHash('md5').update(manifest).digest("hex");
   res.set('Etag', hash);
   res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});

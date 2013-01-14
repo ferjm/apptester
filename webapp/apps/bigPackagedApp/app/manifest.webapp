@@ -1,5 +1,5 @@
 {
-  "name": "BigPackakedApp",
+  "name": "Big Packaged App",
   "description": "Big Packaged App",
   "launch_path": "index.html",
   "developer": {
@@ -9,5 +9,9 @@
   "default_locale": "en-US",
   "icons": {
     "60": "icon.png"
-  }
+  },
+  "version" : "1.0",
+  "size" : 8657577,
+  "release_notes": "First release",
+  "package_path": "/apps/bigPackagedApp/application.zip"
 }
