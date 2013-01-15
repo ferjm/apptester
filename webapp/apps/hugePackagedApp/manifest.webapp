@@ -1,0 +1,17 @@
+{
+  "name": "Huge Packaged App",
+  "description": "Huge Packaged App",
+  "launch_path": "index.html",
+  "developer": {
+    "name": "Francisco Jordano and Fernando Jiménez",
+    "url": "http://www.ardeenelinfierno.com"
+  },
+  "default_locale": "en-US",
+  "icons": {
+    "60": "icon.png"
+  },
+  "version" : "1.0",
+  "size" : 100000000000000000000000000,
+  "release_notes": "First release",
+  "package_path": "/apps/hugePackagedApp/application.zip"
+}

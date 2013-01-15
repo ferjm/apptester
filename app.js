@@ -53,6 +53,14 @@ app.get('/apps/bigPackagedApp/manifest.webapp', function(req, res) {
   res.end(manifest);
 });
 
+app.get('/apps/hugePackagedApp/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/hugePackagedApp/manifest.webapp').toString();
+  var hash = crypto.createHash('md5').update(manifest).digest("hex");
+  res.set('Etag', hash);
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
 app.get('/apps/appWrongCache/manifest.webapp', function(req, res) {
   var manifest = fs.readFileSync(__dirname + '/webapp/apps/appWrongCache/manifest.webapp').toString();
   var hash = crypto.createHash('md5').update(manifest).digest("hex");
@@ -67,6 +75,26 @@ app.get('/apps/appWrongCache/manifest.appcache', function(req, res) {
   res.set('Etag', hash);
   res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
   res.end(manifest);
+});
+
+app.get('/apps/appInexistingCache/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/appInexistingCache/manifest.webapp').toString();
+  var hash = crypto.createHash('md5').update(manifest).digest("hex");
+  res.set('Etag', hash);
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
+app.get('/apps/appRedirectNoExistCache/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/appRedirectNoExistCache/manifest.webapp').toString();
+  var hash = crypto.createHash('md5').update(manifest).digest("hex");
+  res.set('Etag', hash);
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
+app.get('/apps/appRedirectNoExistCache/redirect.appcache', function(req, res) {
+  res.redirect('randominexistingurl');
 });
 
 // Serve the content
