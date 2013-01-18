@@ -1,0 +1,13 @@
+{
+  "name": "Hosted app",
+  "description": "Hosted App",
+  "launch_path": "/apps/hostedApp/index.html",
+  "developer": {
+    "name": "Fernando Jiménez",
+    "url": "http://www.github.com/ferjm"
+  },
+  "icons": {
+    "60": "/apps/hostedApp/icon.png"
+  },
+  "appcache_path": "/apps/hostedApp/manifest.appcache"
+}

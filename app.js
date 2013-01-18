@@ -21,6 +21,22 @@ app.get('/manifest.appcache', function(req, res) {
   res.end(manifest);
 });
 
+app.get('/apps/hostedApp/manifest.webapp', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/hostedApp/manifest.webapp').toString();
+  var hash = crypto.createHash('md5').update(manifest).digest("hex");
+  res.set('Etag', hash);
+  res.writeHead(200, {'Content-Type': 'application/x-web-app-manifest+json'});
+  res.end(manifest);
+});
+
+app.get('/apps/hostedApp/manifest.appcache', function(req, res) {
+  var manifest = fs.readFileSync(__dirname + '/webapp/apps/hostedApp/manifest.appcache').toString();
+  var hash = crypto.createHash('md5').update(manifest).digest("hex");
+  res.set('Etag', hash);
+  res.writeHead(200, {'Content-Type': 'text/cache-manifest'});
+  res.end(manifest);
+});
+
 app.get('/apps/bigHostedApp/manifest.webapp', function(req, res) {
   var manifest = fs.readFileSync(__dirname + '/webapp/apps/bigHostedApp/manifest.webapp').toString();
   var hash = crypto.createHash('md5').update(manifest).digest("hex");

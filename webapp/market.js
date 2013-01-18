@@ -1,4 +1,5 @@
 const APP_REPO = document.location.protocol + '//' + document.location.host;
+const HOSTED_APP = APP_REPO + '/apps/hostedApp/manifest.webapp';
 const BIG_HOSTED_APP = APP_REPO + '/apps/bigHostedApp/manifest.webapp';
 const PACKAGED_APP = APP_REPO + '/apps/packagedApp/manifest.webapp';
 const BIG_PACKAGED_APP = APP_REPO + '/apps/bigPackagedApp/manifest.webapp';
@@ -6,6 +7,17 @@ const WRONG_CACHE_APP = APP_REPO + '/apps/appWrongCache/manifest.webapp';
 const INEXISTING_CACHE_APP = APP_REPO + '/apps/appInexistingCache/manifest.webapp';
 const REDIRECT_CACHE_APP = APP_REPO + '/apps/appRedirectNoExistCache/manifest.webapp';
 const HUGE_PACKAGED_APP = APP_REPO + '/apps/hugePackagedApp/manifest.webapp';
+
+function hostedApp() {
+  var req = navigator.mozApps.install(HOSTED_APP);
+  req.onsuccess = function onsuccess() {
+    console.log('Successfully installed hostedApp');
+  };
+
+  req.onerror = function onerror(e) {
+    console.log('Error ' + e.target.error.name);
+  };
+}
 
 function bigHostedApp() {
   var req = navigator.mozApps.install(BIG_HOSTED_APP);
@@ -85,6 +97,7 @@ function appRedirectNoExistCache() {
 }
 
 window.addEventListener('load', function init(evt) {
+  document.getElementById('hostedApp').addEventListener('click', hostedApp);
   document.getElementById('bigHostedApp').addEventListener('click', bigHostedApp);
   document.getElementById('packagedApp').addEventListener('click', packagedApp);
   document.getElementById('appWrongCache').addEventListener('click', appWithWrongCache);
