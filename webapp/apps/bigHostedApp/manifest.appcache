@@ -3,6 +3,7 @@ CACHE MANIFEST
 CACHE:
 /
 image.jpg
+bigfile
 index.html
 manifest.webapp
 NETWORK:
